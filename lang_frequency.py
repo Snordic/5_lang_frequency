@@ -14,9 +14,8 @@ def clear_characters(data_for_clearning):
     return data_clear
 
 
-def get_most_frequent_words(data_for_search):
-    found_items = Counter(data_for_search).most_common(10)
-    print(found_items)
+def get_most_frequent_words(data_for_search, number_outputs=10):
+    found_items = Counter(data_for_search).most_common(number_outputs)
     return found_items
 
 
