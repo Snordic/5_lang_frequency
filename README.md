@@ -21,13 +21,13 @@
 Необходимо добавить проект:
 
 ```python
-from lang_frequency import  print_word_repetitons
+import lang_frequence
 ```
  
 Запустить функцию с путем до файла:
 
 ```python
-print_word_repetitons('you_file)
+lang_frequence.main('you_file')
 ```
 
 # Как запустить
