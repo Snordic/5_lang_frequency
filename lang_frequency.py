@@ -8,23 +8,19 @@ def load_data(filepath):
         return file_with_txt.read()
 
 
-def clear_characters(text):
-    list_words = re.findall(r'[а-яa-z]+', text)
+def convert_text_to_list(text):
+    list_words = re.findall(r'[а-яa-z]+', text.lower())
     return list_words
 
 
-def get_most_frequent_words(data_for_search, number_words=10):
-    counted_words = Counter(data_for_search).most_common(number_words)
+def get_most_frequent_words(list_words, number_words=10):
+    counted_words = Counter(list_words).most_common(number_words)
     return counted_words
 
 
 def print_word_repetitons(counted_words):
     for word, count in counted_words:
         print('{} => {}'.format(word, count))
-
-
-def format_lower(text):
-    return text.lower()
 
 
 if __name__ == '__main__':
@@ -36,7 +32,6 @@ if __name__ == '__main__':
     except FileNotFoundError:
         print('Ошибка: Данный файл не существует!')
     else:
-        text_lower = format_lower(data_from_file)
-        list_words = clear_characters(text_lower)
+        list_words = convert_text_to_list(data_from_file)
         counted_words = get_most_frequent_words(list_words)
         print_word_repetitons(counted_words)
